@@ -19,6 +19,8 @@ int main(int argc, char **argv) {
   int k;
 
   //TODO - scan n and k
+  scanf("%d",&n);
+  scanf("%d",&k );
 
   long choice = -1;
 
