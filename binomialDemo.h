@@ -17,6 +17,8 @@ int main(int argc, char **argv) {
 
   int n;
   int k;
+  int j;
+  int l;
 
   //TODO - scan n and k
   scanf("%d",&n);
