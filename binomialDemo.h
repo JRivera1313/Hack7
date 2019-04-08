@@ -6,8 +6,6 @@
   *
 */
 
-//DOCUMENTATION HERE dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-
 #include<stdio.h>
 #include<stdlib.h>
 
