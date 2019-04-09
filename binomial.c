@@ -34,9 +34,11 @@ long chooseWithMemoization(int n, int k) {
      not
   */
 
-//malloc
+  //malloc
+  long** tableau = (long**)malloc(sizeof(long*) * (n + 1));                     //JR, Allocates enough memory for first part of array
   for(i=0; i<=n; i++) {
-//malloc
+    //malloc
+    tableau[i] = (long*)malloc(sizeof(long) * (k + 1));                         //JR, Allocates the second part of the array
     for(j=0; j<=k; j++) {
       tableau[i][j] = -1;
     }
