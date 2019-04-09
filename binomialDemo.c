@@ -26,6 +26,13 @@ int main(int argc, char **argv) {
   choice = choose(n, k);
 
   printf("choose(%d, %d) = %ld\n", n, k, choice);
-  printf("number of calls: %ld\n", getNumCalls());
+  printf("number of calls: %ld\n\n\n", getNumCalls());              // REMOVE TWO OF THE NEWLINES BEFORE ZYBOOKS
 
+  //TEMP CODE FOR TESTING
+  numCalls = 0;                                                     //JR, Resets counter
+  int tempChoice = chooseWithMemoization(n,k);                      //JR, Does the mem calls
+  printf("choose(%d, %d) = %ld\n", n, k, tempChoice);         //JR, Duh
+  printf("number of calls: %ld\n", getNumCalls());                  //JR, Duh
+
+  return 0;
 }
