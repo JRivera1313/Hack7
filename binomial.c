@@ -64,7 +64,7 @@ long choose(int n, int k) {
   numCalls++;
 
 //implement error checking on invalid n and k
-  if(k < ??? || n < ???) {
+  if(k < 0 || n < 0) {
     printf("invalid inputs: choose(%d, %d), quitting on you...\n", n, k);
     exit(1);
   }
