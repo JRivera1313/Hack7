@@ -18,33 +18,33 @@ long getNumCalls() {
   return numCalls;
 }
 
-// long chooseWithMemoization(int n, int k) {
-//
-// //implement error checking on invalid n and k
-//   if(k < 0 || n < 0 ) {                                                         //JR
-//     printf("invalid inputs: choose(%d, %d), quitting on you...\n", n, k);
-//     exit(1);
-//   }
-//
-//   int i, j;
-//
-//   /*
-//      dynamically allocate (malloc) a matrix of longs to hold values,
-//      containing flags to indicate if the values has been set or
-//      not
-//   */
-//
-// //malloc
-//   for(i=0; i<=n; i++) {
-// //malloc
-//     for(j=0; j<=k; j++) {
-//       tableau[i][j] = -1;
-//     }
-//   }
-//
-//   return chooseWithMemoizationRecursive(n, k, tableau);
-//
-// }
+long chooseWithMemoization(int n, int k) {
+
+//implement error checking on invalid n and k
+  if(k < 0 || n < 0 ) {                                                         //JR
+    printf("invalid inputs: choose(%d, %d), quitting on you...\n", n, k);
+    exit(1);
+  }
+
+  int i, j;
+
+  /*
+     dynamically allocate (malloc) a matrix of longs to hold values,
+     containing flags to indicate if the values has been set or
+     not
+  */
+
+//malloc
+  for(i=0; i<=n; i++) {
+//malloc
+    for(j=0; j<=k; j++) {
+      tableau[i][j] = -1;
+    }
+  }
+
+  return chooseWithMemoizationRecursive(n, k, tableau);
+
+}
 
 long chooseWithMemoizationRecursive(int n, int k, long **tableau) {
 
