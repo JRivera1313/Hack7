@@ -21,7 +21,7 @@ long getNumCalls() {
 long chooseWithMemoization(int n, int k) {
 
 //implement error checking on invalid n and k
-  if(k ??? || n ??? ) {
+  if(k < 0 || n < 0 ) {                                                         //JR
     printf("invalid inputs: choose(%d, %d), quitting on you...\n", n, k);
     exit(1);
   }
@@ -63,12 +63,21 @@ long choose(int n, int k) {
 
   numCalls++;
 
-//implement error checking on invalid n and k
-  if(k < 0 || n < 0) {
+  //implement error checking on invalid n and k
+  if(k < 0 || n < 0) {                                                          //JR
     printf("invalid inputs: choose(%d, %d), quitting on you...\n", n, k);
     exit(1);
   }
 
-//implement Pascal's Rule to choose
+  //implement Pascal's Rule to choose
+
+  //Base case
+  if (k == 0 || k == n) {                                                       //JR
+    return 1;                                                                   //JR
+  }                                                                             //JR
+  return choose(n - 1, k) + choose(n - 1, k - 1)                                //JR
+
+
+
 
 }
