@@ -39,6 +39,13 @@ long chooseWithMemoization(int n, int k) {
   for(i=0; i<=n; i++) {
     //malloc
     tableau[i] = (long*)malloc(sizeof(long) * (k + 1));                         //JR, Allocates the second part of the array
+
+    if (i == 0) {                                                               //JR, sets base case for recursion
+      for (j = 0; i <= k; j++) {                                                //JR, sets base case for recursion
+        tableau[i][j] = 1;                                                      //JR, sets base case for recursion
+      }                                                                         //JR, sets base case for recursion
+    }                                                                           //JR, sets base case for recursion
+
     for(j=0; j<=k; j++) {
       tableau[i][j] = -1;
     }
@@ -54,10 +61,21 @@ long chooseWithMemoizationRecursive(int n, int k, long **tableau) {
   long value;
 
   //if the value has already been computed, return it...
+  if (tableau[n][k] != -1) {                                                    //JR, Checks if the value has been computed yet, and returns it
+    return tableau[n][k];
+  }
   //otherwise do recursive logic, determine when to call function again
 
-    return value;
+  //Base case
+  if (k == n) {                                                                 //JR
+    return 1;                                                                   //JR
   }
+
+
+  value = chooseWithMemoizationRecursive(n - 1, k,tableau) + chooseWithMemoizationRecursive(n - 1, k - 1,tableau); //JR, yay recursion :|....                                                          //JR, pretty much the same code from Choose
+
+  return value;
+}
 
 
 long choose(int n, int k) {
