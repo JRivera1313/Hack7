@@ -18,33 +18,33 @@ long getNumCalls() {
   return numCalls;
 }
 
-long chooseWithMemoization(int n, int k) {
-
-//implement error checking on invalid n and k
-  if(k < 0 || n < 0 ) {                                                         //JR
-    printf("invalid inputs: choose(%d, %d), quitting on you...\n", n, k);
-    exit(1);
-  }
-
-  int i, j;
-
-  /*
-     dynamically allocate (malloc) a matrix of longs to hold values,
-     containing flags to indicate if the values has been set or
-     not
-  */
-
-//malloc
-  for(i=0; i<=n; i++) {
-//malloc
-    for(j=0; j<=k; j++) {
-      tableau[i][j] = -1;
-    }
-  }
-
-  return chooseWithMemoizationRecursive(n, k, tableau);
-
-}
+// long chooseWithMemoization(int n, int k) {
+//
+// //implement error checking on invalid n and k
+//   if(k < 0 || n < 0 ) {                                                         //JR
+//     printf("invalid inputs: choose(%d, %d), quitting on you...\n", n, k);
+//     exit(1);
+//   }
+//
+//   int i, j;
+//
+//   /*
+//      dynamically allocate (malloc) a matrix of longs to hold values,
+//      containing flags to indicate if the values has been set or
+//      not
+//   */
+//
+// //malloc
+//   for(i=0; i<=n; i++) {
+// //malloc
+//     for(j=0; j<=k; j++) {
+//       tableau[i][j] = -1;
+//     }
+//   }
+//
+//   return chooseWithMemoizationRecursive(n, k, tableau);
+//
+// }
 
 long chooseWithMemoizationRecursive(int n, int k, long **tableau) {
 
@@ -57,7 +57,6 @@ long chooseWithMemoizationRecursive(int n, int k, long **tableau) {
     return value;
   }
 
-}
 
 long choose(int n, int k) {
 
@@ -75,9 +74,5 @@ long choose(int n, int k) {
   if (k == 0 || k == n) {                                                       //JR
     return 1;                                                                   //JR
   }                                                                             //JR
-  return choose(n - 1, k) + choose(n - 1, k - 1)                                //JR
-
-
-
-
+  return choose(n - 1, k) + choose(n - 1, k - 1);                               //JR
 }
