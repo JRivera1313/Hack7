@@ -9,7 +9,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-#include "binomial.h"
+#include "binomial.c"                                                           //JR- changed to .c so it will compile
 
 int main(int argc, char **argv) {
 
