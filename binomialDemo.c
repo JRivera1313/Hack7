@@ -22,18 +22,9 @@ int main(int argc, char **argv) {
 
   long choice = -1;
 
-  // //eventually modify to call memoized choice function
-  // choice = choose(n, k);
-  //
-  // printf("choose(%d, %d) = %ld\n", n, k, choice);
-  // printf("number of calls: %ld\n\n\n", getNumCalls());              // REMOVE TWO OF THE NEWLINES BEFORE ZYBOOKS
+  choice = chooseWithMemoization(n,k);                                          //JR, Does the mem calls
+  printf("choose(%d, %d) = %ld\n", n, k, choice);                               //JR, Output
+  printf("number of calls: %ld\n", getNumCalls());                              //JR, Output
 
-  //TEMP CODE FOR TESTING
-  numCalls = 0;                                                     //JR, Resets counter
-  choice = chooseWithMemoization(n,k);                      //JR, Does the mem calls
-  printf("choose(%d, %d) = %ld\n", n, k, choice);         //JR, Duh
-  printf("number of calls: %ld\n", getNumCalls());                  //JR, Duh
-
-  free tableau;
   return 0;
 }

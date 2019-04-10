@@ -72,7 +72,8 @@ long chooseWithMemoizationRecursive(int n, int k, long **tableau) {
 
     tableau[n][k] = chooseWithMemoizationRecursive(n - 1, k,tableau) + chooseWithMemoizationRecursive(n - 1, k - 1,tableau); //JR, Stores the value in Tablue.
 
-  value = tableau[n][k];                                                        //JR, Value was was part of the starter code so, I used it.
+  value = tableau[n][k];
+  free(tableau);                                                   //JR, Value was was part of the starter code so, I used it.
   return value;
 }
 
