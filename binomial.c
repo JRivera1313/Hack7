@@ -38,18 +38,7 @@ long chooseWithMemoization(int n, int k) {
   long** tableau = (long**)malloc(sizeof(long*) * (n + 1));                     //JR, Allocates enough memory for first part of array
   for(i=0; i<=n; i++) {
     //malloc
-<<<<<<< HEAD
-    tableau[i] = (long*)malloc(sizeof(long) * (k + 1));                         //JR, Allocates the second part of the array
-
-    if (i == 0) {                                                               //JR, sets base case for recursion
-      for (j = 0; j <= k; j++) {
-        tableau[i][j] = 1;
-      }
-    }
-
-=======
     tableau[i] = (long*)malloc(sizeof(long) * (k + 1));                         //JR, Allocates the second part of the array                                                                       //JR, sets base case for recursion
->>>>>>> 18610cbdf3df8ab57ca651364714dfe85b074aa5
     for(j=0; j<=k; j++) {
       if (j == 0 || j == i) {
         tableau[i][j] = 1;                                                      //JR Sets base case
