@@ -34,5 +34,6 @@ int main(int argc, char **argv) {
   printf("choose(%d, %d) = %ld\n", n, k, choice);         //JR, Duh
   printf("number of calls: %ld\n", getNumCalls());                  //JR, Duh
 
+  free tableau;
   return 0;
 }
