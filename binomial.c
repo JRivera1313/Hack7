@@ -89,7 +89,7 @@ long choose(int n, int k) {
 
   //implement Pascal's Rule to choose
   //TEMP CODE TO HELLP FIGURE THE DAMN THING OUT//
-  printf("Choose %d %d \t %d\n",n,k,numCalls);
+  printf("Choose %d %d \t %ld\n",n,k,numCalls);
 
   //Base case
   if (k == 0 || k == n) {                                                       //JR
