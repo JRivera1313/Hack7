@@ -58,22 +58,25 @@ long chooseWithMemoization(int n, int k) {
 long chooseWithMemoizationRecursive(int n, int k, long **tableau) {
 
   numCalls++;
-  long value;
+  long value = -1;
 
   //if the value has already been computed, return it...
   if (tableau[n][k] != -1) {                                                    //JR, Checks if the value has been computed yet, and returns it
-    return tableau[n][k];
+    value = tableau[n][k];
   }
-  //otherwise do recursive logic, determine when to call function again
 
   //Base case
   if (k == n) {                                                                 //JR
     return 1;                                                                   //JR
   }
-
-
-  value = chooseWithMemoizationRecursive(n - 1, k,tableau) + chooseWithMemoizationRecursive(n - 1, k - 1,tableau); //JR, yay recursion :|....                                                          //JR, pretty much the same code from Choose
-
+  
+  //Chooses how much recusion to do.
+  if (value != -1) {
+    return (value + chooseWithMemoizationRecursive(n - 1, k - 1,tableau));
+  }
+  else{
+    value = chooseWithMemoizationRecursive(n - 1, k,tableau) + chooseWithMemoizationRecursive(n - 1, k - 1,tableau); //JR, yay recursion :|....                                                          //JR, pretty much the same code from Choose
+  }
   return value;
 }
 
