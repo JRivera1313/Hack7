@@ -41,10 +41,10 @@ long chooseWithMemoization(int n, int k) {
     tableau[i] = (long*)malloc(sizeof(long) * (k + 1));                         //JR, Allocates the second part of the array
 
     if (i == 0) {                                                               //JR, sets base case for recursion
-      for (j = 0; j <= k; j++) {                                                //JR, sets base case for recursion
-        tableau[i][j] = 1;                                                      //JR, sets base case for recursion
-      }                                                                         //JR, sets base case for recursion
-    }                                                                           //JR, sets base case for recursion
+      for (j = 0; j <= k; j++) {
+        tableau[i][j] = 1;
+      }
+    }
 
     for(j=0; j<=k; j++) {
       tableau[i][j] = -1;
