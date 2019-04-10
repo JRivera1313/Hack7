@@ -3,6 +3,8 @@
   * Author(s): Jesus Rivea III
   * Date: 04/8/2019
   *
+  * Finds the possable amount of unsorted combonations by n choose k
+  *
   *
 */
 

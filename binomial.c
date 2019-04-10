@@ -3,11 +3,10 @@
   * Author(s): Jesus Rivea III
   * Date: 04/8/2019
   *
+  * Refer to binomial.h for information on the purpous of each function
+  *
   *
 */
-
-
-//DOCUMENTATION HERE
 
 #include<stdio.h>
 #include<stdlib.h>
@@ -72,8 +71,8 @@ long chooseWithMemoizationRecursive(int n, int k, long **tableau) {
 
     tableau[n][k] = chooseWithMemoizationRecursive(n - 1, k,tableau) + chooseWithMemoizationRecursive(n - 1, k - 1,tableau); //JR, Stores the value in Tablue.
 
-  value = tableau[n][k];
-  free(tableau);                                                   //JR, Value was was part of the starter code so, I used it.
+  value = tableau[n][k];                                                        //JR, Value was was part of the starter code so, I used it.
+  //free(tableau);                                                              //Zybooks doesn't like this free, but it should probbboly be here.
   return value;
 }
 
