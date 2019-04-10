@@ -38,16 +38,14 @@ long chooseWithMemoization(int n, int k) {
   long** tableau = (long**)malloc(sizeof(long*) * (n + 1));                     //JR, Allocates enough memory for first part of array
   for(i=0; i<=n; i++) {
     //malloc
-    tableau[i] = (long*)malloc(sizeof(long) * (k + 1));                         //JR, Allocates the second part of the array
-
-    if (i == 0) {                                                               //JR, sets base case for recursion
-      for (j = 0; j <= k; j++) {                                                //JR, sets base case for recursion
-        tableau[i][j] = 1;                                                      //JR, sets base case for recursion
-      }                                                                         //JR, sets base case for recursion
-    }                                                                           //JR, sets base case for recursion
-
+    tableau[i] = (long*)malloc(sizeof(long) * (k + 1));                         //JR, Allocates the second part of the array                                                                       //JR, sets base case for recursion
     for(j=0; j<=k; j++) {
-      tableau[i][j] = -1;
+      if (j == 0 || j == i) {
+        tableau[i][j] = 1;                                                      //JR Sets base case
+      }
+      else{
+        tableau[i][j] = -1;
+      }
     }
   }
 
@@ -60,19 +58,20 @@ long chooseWithMemoizationRecursive(int n, int k, long **tableau) {
   numCalls++;
   long value = -1;
 
+  //implement error checking on invalid n and k
+  if(k < 0 || n < 0) {                                                          //JR
+    printf("invalid inputs: choose(%d, %d), quitting on you...\n", n, k);
+    exit(1);
+  }
+
   //if the value has already been computed, return it...
   if (tableau[n][k] != -1) {                                                    //JR, Checks if the value has been computed yet, and returns it
     value = tableau[n][k];
   }
 
-  //Base case
-  if (k == n) {                                                                 //JR
-    return 1;                                                                   //JR
-  }
-  
   //Chooses how much recusion to do.
   if (value != -1) {
-    return (value + chooseWithMemoizationRecursive(n - 1, k - 1,tableau));
+    return value;
   }
   else{
     value = chooseWithMemoizationRecursive(n - 1, k,tableau) + chooseWithMemoizationRecursive(n - 1, k - 1,tableau); //JR, yay recursion :|....                                                          //JR, pretty much the same code from Choose
