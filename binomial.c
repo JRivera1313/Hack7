@@ -38,16 +38,14 @@ long chooseWithMemoization(int n, int k) {
   long** tableau = (long**)malloc(sizeof(long*) * (n + 1));                     //JR, Allocates enough memory for first part of array
   for(i=0; i<=n; i++) {
     //malloc
-    tableau[i] = (long*)malloc(sizeof(long) * (k + 1));                         //JR, Allocates the second part of the array
-
-    if (i == 0) {                                                               //JR, sets base case for recursion
-      for (j = 0; j <= k; j++) {                                                //JR, sets base case for recursion
-        tableau[i][j] = 1;                                                      //JR, sets base case for recursion
-      }                                                                         //JR, sets base case for recursion
-    }                                                                           //JR, sets base case for recursion
-
+    tableau[i] = (long*)malloc(sizeof(long) * (k + 1));                         //JR, Allocates the second part of the array                                                                       //JR, sets base case for recursion
     for(j=0; j<=k; j++) {
-      tableau[i][j] = -1;
+      if (j == 0 || j == i) {
+        tableau[i][j] = 1;                                                      //JR Sets base case
+      }
+      else{
+        tableau[i][j] = -1;
+      }
     }
   }
 
@@ -58,22 +56,23 @@ long chooseWithMemoization(int n, int k) {
 long chooseWithMemoizationRecursive(int n, int k, long **tableau) {
 
   numCalls++;
-  long value;
+  long value = -1;
 
-  //if the value has already been computed, return it...
+  //implement error checking on invalid n and k                                 //JR
+  if(k < 0 || n < 0) {                                                          //JR
+    printf("invalid inputs: choose(%d, %d), quitting on you...\n", n, k);       //JR
+    exit(1);                                                                    //JR
+  }                                                                             //JR
+
+  //if the value has already been computed, return it...                        //JR
   if (tableau[n][k] != -1) {                                                    //JR, Checks if the value has been computed yet, and returns it
-    return tableau[n][k];
-  }
-  //otherwise do recursive logic, determine when to call function again
+    value = tableau[n][k];                                                      //JR
+    return value;                                                               //JR
+  }                                                                             //JR
 
-  //Base case
-  if (k == n) {                                                                 //JR
-    return 1;                                                                   //JR
-  }
+    tableau[n][k] = chooseWithMemoizationRecursive(n - 1, k,tableau) + chooseWithMemoizationRecursive(n - 1, k - 1,tableau); //JR, Stores the value in Tablue.
 
-
-  value = chooseWithMemoizationRecursive(n - 1, k,tableau) + chooseWithMemoizationRecursive(n - 1, k - 1,tableau); //JR, yay recursion :|....                                                          //JR, pretty much the same code from Choose
-
+  value = tableau[n][k];                                                        //JR, Value was was part of the starter code so, I used it.
   return value;
 }
 
@@ -84,15 +83,18 @@ long choose(int n, int k) {
 
   //implement error checking on invalid n and k
   if(k < 0 || n < 0) {                                                          //JR
-    printf("invalid inputs: choose(%d, %d), quitting on you...\n", n, k);
-    exit(1);
+    printf("invalid inputs: choose(%d, %d), quitting on you...\n", n, k);       //JR
+    exit(1);                                                                    //JR
   }
 
   //implement Pascal's Rule to choose
+  //TEMP CODE TO HELLP FIGURE THE DAMN THING OUT//
+  printf("Choose %d %d \t %d\n",n,k,numCalls);
 
   //Base case
   if (k == 0 || k == n) {                                                       //JR
     return 1;                                                                   //JR
-  }                                                                             //JR
+  }
+
   return choose(n - 1, k) + choose(n - 1, k - 1);                               //JR
 }
