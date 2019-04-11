@@ -1,6 +1,6 @@
 /**
   * binomial.c
-  * Author(s): Jesus Rivea III
+  * Author(s): Jesus Rivea III, Kylee Hauxwell
   * Date: 04/8/2019
   *
   * Refer to binomial.h for information on the purpous of each function

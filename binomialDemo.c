@@ -1,6 +1,6 @@
 /**
   * binomialDemo.h
-  * Author(s): Jesus Rivea III
+  * Author(s): Jesus Rivea III, Kylee Hauxwell
   * Date: 04/8/2019
   *
   * Finds the possable amount of unsorted combonations by n choose k

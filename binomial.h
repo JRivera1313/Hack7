@@ -1,6 +1,6 @@
 /**
   * binomial.h
-  * Author(s): Jesus Rivea III
+  * Author(s): Jesus Rivea III, Kylee Hauxwell
   * Date: 04/8/2019
   *
   *
